@@ -1,0 +1,46 @@
+<!-- Template driven <br />
+<form (submit) = "onSubmit()">
+  <input
+    type="text"
+    [(ngModel)]="favouriteColor"
+    name="text"
+    required
+    minlenght="4"
+    #text="ngModel"
+  />
+  <p>Hodnota inputu text: {{ favouriteColor }}</p>
+  <p>Stav inputu text: {{ !text.invalid }}</p>
+
+  <input
+    type="number"
+    [(ngModel)]="favouriteNumber"
+    name="number"
+    required
+    #number="ngModel"
+  />
+  <p>Hodnota inputu number: {{ favouriteNumber }}</p>
+  <p>Stav inputu number: {{ !number.invalid }}</p>
+
+  <button type="submit" [disabled]="validate()">Submit</button>
+</form> -->
+<br>
+Reactive form <br>
+<form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+  <label for="fname">First name:</label><br>
+  <!-- <input type="text" id="fname" [formControl]="firstName" ><br> -->
+  <!-- bez formGroup iba reactive obycajne chapes ne? -->
+
+  <input type="text" id="fname" formControlName="firstName" ><br>
+  <!-- <p>firstName value: {{ firstName.value }} </p> -->
+  
+  <label for="lname">Last name:</label><br>
+  <!-- <input type="text" id="lname" [formControl]="lastName" ><br> -->
+  <input type="text" id="lname" formControlName="lastName" ><br>
+  <!-- <p>lastName value: {{ lastName.value }} </p> -->
+  <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
+
+
+
+<!-- <input type="checkbox" [(ngModel)]="favouriteValue">
+<p>Hodnota inputu: {{ favouriteValue }}</p> -->
